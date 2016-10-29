@@ -24,6 +24,8 @@ public class ActivityAuth extends Activity implements View.OnClickListener{
         {
             String[] args = null;
 
+            args = new String[3];
+
             EditText nick = (EditText)findViewById(R.id.input_nick);
             EditText port = (EditText)findViewById(R.id.input_port);
             EditText server = (EditText)findViewById(R.id.input_server);

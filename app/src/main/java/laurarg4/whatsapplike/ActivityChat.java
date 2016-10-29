@@ -1,11 +1,7 @@
 package laurarg4.whatsapplike;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -14,15 +10,18 @@ public class ActivityChat extends Activity{
     {
         super.onCreate(icicle);
         setContentView(R.layout.activity_chat);
+
+        String[] string_array = readArgs();
+
+        TextView nick = (TextView) findViewById(R.id.text_nick);
+        nick.setText(string_array[0] + "@" + string_array[1] + ":" + string_array[2]);
     }
 
     String[] readArgs()
     {
-        Intent act_intent = getIntent();
 
-        String[] ret = act_intent.getExtras().getStringArray("Arguments");
-        TextView t = (TextView)findViewById(R.id.nick);
-        t.setText(ret[0]);
+        Bundle extra_bundle = getIntent().getExtras();
+        String[] ret = extra_bundle.getStringArray("Arguments");
 
         return ret;
     }
