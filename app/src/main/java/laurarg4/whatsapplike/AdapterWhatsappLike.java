@@ -83,7 +83,7 @@ public class AdapterWhatsappLike extends BaseAdapter {
         Random rnd = new Random();
         int ret = (int)(rnd.nextInt()*100+1);
 
-        return ret % 3;
+        return ret % 2;
     }
 
     @Override
