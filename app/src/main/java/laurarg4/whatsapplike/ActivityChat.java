@@ -7,16 +7,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Message;
 import android.view.View;
+import android.util.Log;
 
+import java.util.logging.Logger;
 import java.util.ArrayList;
 
 
 public class ActivityChat extends Activity{
 
-    private ArrayList<Message> dialogue;
     private ListView conversation;
+    private EditText input_text;
     private AdapterWhatsappLike adapter_wl;
+    private ArrayList<String> messages;
+    //private boolean align_to_the_right;
 
+    @Override
     protected void onCreate(Bundle icicle)
     {
         super.onCreate(icicle);
@@ -27,17 +32,12 @@ public class ActivityChat extends Activity{
         TextView nick = (TextView) findViewById(R.id.text_nick);
         nick.setText(string_array[0] + "@" + string_array[1] + ":" + string_array[2]);
 
-        dialogue = new ArrayList<Message>();
+        //scrollView = (ScrollView)findViewById(R.id.scrollview);
         conversation = (ListView) findViewById(R.id.conversation);
-        adapter_wl = new AdapterWhatsappLike(this, R.id.conversation, dialogue);
-
-        //Message message_content = new Message();
-        //Bundle msg = new Bundle();
-        //msg.putString("","Hola");
-        //message_content.setData(msg);
-        //dialogue.add(message_content);
-
+        messages = new ArrayList<String>();
+        adapter_wl = new AdapterWhatsappLike(this, messages);
         conversation.setAdapter(adapter_wl);
+        input_text = (EditText) findViewById(R.id.input);
 
     }
 
@@ -52,14 +52,18 @@ public class ActivityChat extends Activity{
 
     public void addText(final View view) {
 
-        EditText input_text = (EditText) findViewById(R.id.input);
-        if(input_text.getEditableText().toString().equals("")) return;
+        if(input_text.getEditableText().toString().equals(""))
+            return;
 
+        messages.add(input_text.getEditableText().toString());
+        input_text.setText("");
         conversation.post(new Runnable() {
             @Override
             public void run() {
                 conversation.setSelection(conversation.getCount() - 1);
-            }
+                }
         });
+
+        adapter_wl.notifyDataSetChanged();
     }
 }

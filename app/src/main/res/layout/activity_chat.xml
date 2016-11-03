@@ -37,7 +37,7 @@
 
         <EditText
             android:id="@+id/input"
-            android:layout_width="260dip"
+            android:layout_width="150dp"
             android:layout_height="50dip"
             android:paddingLeft="4dp"
             android:hint="Write here..."
