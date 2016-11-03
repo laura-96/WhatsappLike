@@ -1,5 +1,7 @@
 package laurarg4.whatsapplike;
 
+//Authors: Laura Ripoll and Arnald Vilella
+
 import java.util.ArrayList;
 import java.util.Random;
 

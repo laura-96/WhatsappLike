@@ -1,5 +1,7 @@
 package laurarg4.whatsapplike;
 
+//Authors: Laura Ripoll and Arnald Vilella
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.EditText;
