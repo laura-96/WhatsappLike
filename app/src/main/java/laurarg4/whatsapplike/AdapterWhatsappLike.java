@@ -42,7 +42,7 @@ public class AdapterWhatsappLike extends BaseAdapter {
                 conv_view = LayoutInflater.from(cont).inflate(R.layout.whats_date, parent, false);
 
             view_holder = new ViewHolder();
-            view_holder.mess  = (TextView)  conv_view.findViewById(R.id.text);
+            view_holder.mess  = (TextView) conv_view.findViewById(R.id.text);
             conv_view.setTag(view_holder);
         }
 
@@ -54,19 +54,14 @@ public class AdapterWhatsappLike extends BaseAdapter {
 
         }
 
-
         if(getItemViewType(position) == 2)
         {
-
             Date date = new Date();
             view_holder.mess.setText(date.toLocaleString());
-
         }
-
 
         return conv_view;
     }
-
 
     public Object getItem(int arg0) {
         return messages.get(arg0);
@@ -76,14 +71,10 @@ public class AdapterWhatsappLike extends BaseAdapter {
         return arg0;
     }
 
-
     @Override
     public int getItemViewType(int position) {
 
-        Random rnd = new Random();
-        int ret = (int)(rnd.nextInt()*100+1);
-
-        return ret % 2;
+        return position % 3;
     }
 
     @Override
@@ -92,16 +83,9 @@ public class AdapterWhatsappLike extends BaseAdapter {
     }
 
     @Override
-    public boolean isEnabled(int position) {
-        return false;
-    }
-
-    @Override
     public int getCount() {
         return messages.size();
     }
-
-
 
     private class ViewHolder {
         public TextView mess;

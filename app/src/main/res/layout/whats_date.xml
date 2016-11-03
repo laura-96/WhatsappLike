@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="12dip"
-        android:text="Here goes the date"/>
+        android:text=""/>
 
 </RelativeLayout>
 
