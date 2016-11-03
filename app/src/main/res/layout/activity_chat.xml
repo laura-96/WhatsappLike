@@ -15,10 +15,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <ListView android:id="@+id/message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="2dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="2dip"
+        android:background="@color/grey">
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="260dip"
+            android:layout_height="50dip"
+            android:paddingLeft="4dp"
+            android:hint="Write here..."
+            android:background="@color/grey"
+            android:textColor="@color/black"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/sendbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="addText"
+            android:text="Send"/>
 
 
 </LinearLayout>
