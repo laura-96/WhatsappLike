@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <ListView android:id="@+id/message"
+    <ListView android:id="@+id/conversation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -52,6 +52,6 @@
             android:layout_height="wrap_content"
             android:onClick="addText"
             android:text="Send"/>
-
+    </LinearLayout>
 
 </LinearLayout>
